@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
-import Customer1 from "../assets/customer1.jpg";
-import Customer2 from "../assets/customer2.jpg";
-import Customer3 from "../assets/customer3.jpg";
+
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr';
 
 const Testimonials = [
     {
         id: 1,
         name: "Chioma Okafor",
-        img: Customer1,
+        img: "https://i.ibb.co/8D7ZyCqM/customer1.png",
         comment: "Wase made it so easy to find a reliable plumber in my area. The booking process was smooth and the service was excellent!",
         role: "Customer",
         rating: 5
@@ -19,7 +17,7 @@ const Testimonials = [
     {
         id: 2,
         name: "Amina Ibrahim",
-        img: Customer2,
+        img: "https://i.ibb.co/B5zz6zzv/customer2.png",
         comment: "I needed a caterer for a family event with just 2 days notice. Wase helped me find the perfect match who delivered beyond expectations!",
         role: "Customer",
         rating: 4
@@ -27,7 +25,7 @@ const Testimonials = [
     {
         id: 3,
         name: "Emeka Nwosu",
-        img: Customer3,
+        img: "https://i.ibb.co/DHXqNh00/customer3.png",
         comment: "Since joining Wase, my client base has grown by over 60%. The platform is intuitive and helps me manage my business better.",
         role: "Electrician",
         rating: 5

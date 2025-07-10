@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import ExpertPlumber from "../assets/expert-plumber.jpg"
-import EventPlanner from "../assets/event-planner.jpg"
-import Tutor from "../assets/Tutor.jpg"
+
 import { FaStar } from 'react-icons/fa'
 import { IoLocationOutline } from 'react-icons/io5'
 import { LuEye } from 'react-icons/lu'
@@ -16,7 +14,7 @@ const TopRatedProviders = [
         location:"Ikeja, Lagos",
         price:"₦5000",
         reviews: 124,
-        img:ExpertPlumber
+        img: "https://i.ibb.co/SD8KNFvR/expert-plumber.png"
     },
     {
         id: 2,
@@ -26,7 +24,7 @@ const TopRatedProviders = [
         location: "Victoria Island, Lagos",
         price: "₦50,000",
         reviews: 98,
-        img:EventPlanner
+        img: "https://i.ibb.co/W42Xffrn/event-planner.png"
     },
     {
         id: 3,
@@ -36,7 +34,7 @@ const TopRatedProviders = [
         location: "Abuja, FCT",
         price: "₦3,500/hr",
         reviews: 87,
-        img: Tutor
+        img: "https://i.ibb.co/YFsVDY9K/Tutor.png" 
     }
 ]
 

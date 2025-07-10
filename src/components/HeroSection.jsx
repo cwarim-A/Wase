@@ -1,5 +1,5 @@
 import { CiSearch, CiUser } from "react-icons/ci"
-import BackgroundImage  from "../assets/bg-four.jpg"
+
 import { MdOutlineLocationOn } from "react-icons/md"
 
 
@@ -7,7 +7,7 @@ const HeroSection = () => {
   return (
       <section
           className="h-screen bg-cover bg-center relative "
-          style={{ backgroundImage: `url(${BackgroundImage})` }}
+          style={{ backgroundImage: `url("https://i.ibb.co/CsPRSG9L/bg-four.png" )` }}
       >
           {/* Optional overlay for readability */}
           <div className="absolute inset-0 bg-black/80"></div>

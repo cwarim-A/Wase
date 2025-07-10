@@ -1,10 +1,5 @@
 import React from 'react'
-import Plumber from "../assets/plumber.jpg"
-import Electrician from "../assets/electrician.jpg"
-import Fashion from "../assets/Fashion.jpg"
-import Teacher from "../assets/Teacher.jpg"
-import MakeUp from "../assets/MakeUp.jpg"
-import { div } from 'framer-motion/client'
+
 import { LuArrowRight } from 'react-icons/lu'
 
 
@@ -13,31 +8,31 @@ const AvailableCategories = [
         id:1,
         name:"Plumber",
         number: "100",
-        image:Plumber
+        image: "https://i.ibb.co/svmVwSd7/plumber.png"  
     },
     {
         id:2,
         name:"Electrical Engineer",
         number:"50",
-        image:Electrician
+        image: "https://i.ibb.co/dwF3kCwQ/electrician.png"
     },
     {
         id:3,
         name:"Fashion Designer",
         number:"60",
-        image: Fashion
+        image: "https://i.ibb.co/KjcMFbSN/Fashion.png"
     },
     {
         id:4,
         name:"Teachers",
         number:"100",
-        image: Teacher
+        image: "https://i.ibb.co/GQ3JHJWB/Teacher.png"
     },
     {
         id:5,
         name:"Beauty",
         number:"30",
-        image:MakeUp
+        image:"https://i.ibb.co/Xf83hG8W/MakeUp.png"
     }
 ]
 
