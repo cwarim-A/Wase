@@ -10,6 +10,7 @@ export default {
         "logoBlue": "#122c91",
         "buttonBlue": "#0000ff"
       },
+      
     },
   },
   plugins: [],

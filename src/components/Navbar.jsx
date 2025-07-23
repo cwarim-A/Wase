@@ -27,7 +27,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={` flex items-center justify-between px-5 md:px-10 py-5 fixed top-0 left-0 right-0  z-50 bg-transparent   ${scrolled ? "bg-white backdrop-blur-md   shadow text-black" : "bg-black/5 text-white"
+    <div className={` flex items-center justify-between px-5 md:px-10 py-5 fixed top-0 left-0 right-0  z-50 bg-transparent   ${scrolled ? "bg-white    shadow text-black" : "bg-black/5 text-white"
       }`}>
       {/* Logo */}
       <Link to="/">
@@ -38,7 +38,7 @@ const Navbar = () => {
       </Link>
       {/* NavLinks */}
       <ul className='hidden relative md:flex gap-5 text-sm'>
-        <li><a href="/find-services">Find Services</a> </li>
+        <li><Link href="/find-services">Find Services</Link> </li>
         <li
           onMouseEnter={() => setShowDropdown(true)}
           onMouseLeave={handleMouseLeave}
@@ -63,13 +63,13 @@ const Navbar = () => {
             </ul>
           )}
         </li>
-        <li><a href="/offer-service">Offer Services</a></li>
+        <li><Link to="/offer-service">Offer Services</Link></li>
       </ul>
 
       {/* Login/Signup */}
       <div className='hidden md:flex gap-5'>
-        <button className='text-[16px] px-5 py-2 '>Login</button>
-        <button className='bg-buttonBlue px-2 py-2 text-white text-[16px] rounded-lg'>Register</button>
+        <Link to="/login"><button className='text-[16px] px-5 py-2 '>Login</button></Link>
+        <Link to="/signup"><button className='bg-buttonBlue px-2 py-2 text-white text-[16px] rounded-lg'>Register</button></Link>
       </div>
       <div className="block md:hidden relative">
         <GiHamburgerMenu className=" text-3xl" onClick={() => setShowMenu(true)} />
