@@ -4,12 +4,19 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { IoMdClose } from "react-icons/io"
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md"
 import { Link } from "react-router-dom"
+import { useAuth } from "../context/AuthContext"
+import { CiSettings, CiUser } from "react-icons/ci"
+import { AiOutlineLogout } from "react-icons/ai"
 
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
+  const [showProfile, setShowProfile] = useState(false)
+
+
+  const { user } = useAuth();
   const hideTimeout = useRef(null);
   useEffect(() => {
     const handleScroll = () => {
@@ -27,7 +34,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={` flex items-center justify-between px-5 md:px-10 py-5 fixed top-0 left-0 right-0  z-50 bg-transparent   ${scrolled ? "bg-white    shadow text-black" : "bg-black/5 text-white"
+    <div className={` flex items-center justify-between px-5 md:px-10 py-5 fixed top-0 left-0 right-0  z-50 bg-transparent   ${scrolled ? "bg-white shadow text-black" : "bg-black/5 text-white shadow-sm"
       }`}>
       {/* Logo */}
       <Link to="/">
@@ -67,9 +74,52 @@ const Navbar = () => {
       </ul>
 
       {/* Login/Signup */}
-      <div className='hidden md:flex gap-5'>
-        <Link to="/login"><button className='text-[16px] px-5 py-2 '>Login</button></Link>
-        <Link to="/signup"><button className='bg-buttonBlue px-2 py-2 text-white text-[16px] rounded-lg'>Register</button></Link>
+      <div className='hidden md:flex  gap-5'>
+        {user ? (
+          <div onClick={() => setShowProfile(!showProfile)} className="relative flex items-center gap-3">
+            <img src={user.image} className="w-[40px] h-[40px] rounded-full ring-2" alt="" />
+            {/* <div className="flex flex-col ">
+              <span className='text-[14px] capitalize'> {user.user.name}</span>
+              <span className="text-[12px]">{user.user.email}</span>
+            </div> */}
+            {showProfile ? <MdKeyboardArrowDown /> : <MdKeyboardArrowUp />}
+            {
+              showProfile && (
+                <div className="absolute top-12 right-0 bg-white w-[210px] h-auto text-black rounded-md">
+                  <div className="flex flex-col text-[14px]">
+                    <div className="flex gap-2 items-center p-2 cursor-pointer hover:bg-slate-100 hover:rounded-md">
+                      <img src={user.image} className="w-[40px] h-[40px] rounded-full ring-2" alt="" />
+                      <div className="flex flex-col ">
+                        <span className='text-[14px] capitalize'> {user.user.name}</span>
+                        <span className="text-[12px]">{user.user.email}</span>
+                      </div>
+                    </div>
+                    <hr />
+                    <Link to="/profile" className="flex gap-2 items-center p-2 cursor-pointer hover:bg-slate-100 hover:rounded-md">
+                      <CiUser />
+                      Your profile
+                    </Link>
+                    <hr />
+                    <Link to="/settings" className="flex gap-2 items-center p-2 cursor-pointer hover:bg-slate-100 hover:rounded-md">
+                      <CiSettings />
+                      Settings
+                    </Link>
+                    <hr />
+                    <Link to="" className="flex gap-2 items-center p-2 text-red-400 cursor-pointer hover:bg-slate-100 hover:rounded-md">
+                      <AiOutlineLogout />
+                      Logout
+                    </Link>
+                  </div>
+                </div>
+              )
+            }
+          </div>
+        ) : (
+          <>
+            <Link to="/login"><button className='text-[16px] px-5 py-2 '>Login</button></Link>
+            <Link to="/signup"><button className='bg-buttonBlue px-2 py-2 text-white text-[16px] rounded-lg'>Register</button></Link>
+          </>
+        )}
       </div>
       <div className="block md:hidden relative">
         <GiHamburgerMenu className=" text-3xl" onClick={() => setShowMenu(true)} />
@@ -80,8 +130,8 @@ const Navbar = () => {
                 initial={{ x: -50, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -50, opacity: 0 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="fixed top-0 left-0 w-full h-[50%] bg-white text-black backdrop-blur-lg z-50 flex flex-col px-6 py-6 shadow-md transition-all duration-300 ease-in-out">
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="fixed top-0 left-0 w-full h-full bg-white text-black backdrop-blur-lg z-50 flex flex-col px-6 py-6 shadow-md transition-all duration-300 ease-in-out">
                 <div className="flex justify-end">
                   <IoMdClose className="text-3xl cursor-pointer" onClick={() => setShowMenu(false)} />
                 </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { LuArrowRight } from 'react-icons/lu'
+import { Link } from 'react-router-dom'
 
 
 const AvailableCategories = [
@@ -53,13 +54,13 @@ const PopularCategories = () => {
         <div className='flex items-center justify-between flex-wrap md:flex-nowrap gap-5 '>
              {
                 AvailableCategories.map((category)=>(
-                    <div key={category.id} className='bg-white rounded-lg shadow-lg mt-5 flex flex-col gap-2 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out '>
+                    <Link to={`/search?category=${encodeURIComponent(category.name)}`} key={category.id} className='bg-white rounded-lg shadow-lg mt-5 flex flex-col gap-2 cursor-pointer hover:scale-110 transition-transform duration-300 ease-in-out '>
                         <img src={category.image} alt={category.name} className='bg-cover bg-center rounded-sm' />
                         <div className='flex flex-col justify-center items-center px-2 py-3'>
                             <span className='text-logoBlue'>{category.name}</span>
                             <span className='text-sm text-gray-400'>{category.number}+ providers</span>
                         </div>
-                    </div>
+                    </Link>
                 ))
              }
         </div>

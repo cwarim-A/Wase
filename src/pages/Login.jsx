@@ -4,6 +4,9 @@ import MainBackground from "../assets/Background-min.jpg"
 import { Link, useNavigate } from 'react-router-dom'
 import { FiEyeOff } from 'react-icons/fi'
 import { BsEye } from 'react-icons/bs'
+import { useAuth } from '../context/AuthContext'
+import { toast } from 'react-toastify';
+
 
 const Login = () => {
     const navigate = useNavigate()
@@ -13,6 +16,7 @@ const Login = () => {
     })
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
+    const {login} = useAuth();
 
     const handleChange = (e) => {
 
@@ -28,37 +32,51 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         setLoading(true)
-        const res = await fetch("http://localhost:5000/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(formData)
-        })
+        // const res = await fetch("http://localhost:5000/api/auth/login", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(formData)
+        // })
 
-        const result = await res.json();
-        console.log(result)
+        // const result = await res.json();
+        // console.log(result)
 
-        setLoading(false)
-        if (res.ok) {
-            alert("Login successful")
-            localStorage.setItem("token", result.token)
+        // setLoading(false)
+        // if (res.ok) {
+        //     alert("Login successful")
+        //     localStorage.setItem("token", result.token)
+        //     setFormData({
+        //         email: "",
+        //         password: ""
+        //     })
+        //     navigate("/")
+        // } else {
+        //     alert(result.msg)
+        // }
+        try {
+            await login(formData);
+            setLoading(false);
             setFormData({
                 email: "",
                 password: ""
-            })
-            navigate("/")
-        } else {
-            alert(result.msg)
+            });
+            toast.success("Login successful");
+            navigate("/");
+        } catch (error) {
+            setLoading(false);
+            console.error("Login failed:", error);
         }
     }
 
 
 
 
+
     return (
         <div className='flex justify-center items-center h-[100vh]  ' style={{ backgroundImage: `url(${BackgroundImg})` }}>
-            <div className='w-[400px] h-[80vh] bg-white shadow-md flex mt-20 rounded-md '>
+            <div className='w-[400px]  h-[90vh] md:h-[80vh] bg-white shadow-md flex mt-20 rounded-md '>
                 {/* Form Div */}
                 <form className='flex-1 '>
                     <div className=' flex flex-col px-5 py-5'>

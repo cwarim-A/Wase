@@ -52,7 +52,7 @@ const SignUp = () => {
 
     return (
         <div className='flex justify-center items-center h-screen  ' style={{ backgroundImage: `url(${BackgroundImg})` }}>
-            <div className='w-[400px] h-[95vh] overflow-y-auto bg-white shadow-md flex mt-5 rounded-md  '>
+            <div className='w-[400px] h-[90vh] md:h-[95%] overflow-y-auto bg-white shadow-md flex mt-5 rounded-md  '>
                 {/* Image Div */}
                 {/* <div className='relative flex-1 bg-cover bg-center text-white  flex items-end' style={{ backgroundImage: `url(${MainBackground})` }}>
                     <div className='absolute inset-0 bg-black/40'></div>
