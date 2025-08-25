@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
     const getUser = async ()=>{
         try {
-            const res = await fetch("http://localhost:5000/api/user/myprofile", {
+            const res = await fetch("https://wase-backend-fnji.onrender.com/api/user/myprofile", {
                 method: "GET",
                 credentials: "include"
             })
@@ -29,14 +29,14 @@ export const AuthProvider = ({ children }) => {
                 console.log("User profile fetched successfully:", data);
             }
         } catch (error) {
-            
+            console.error(error.message)
         }
     }
    
 
     const login = async (credentials) => {
         try {
-            const res = await fetch("http://localhost:5000/api/auth/login", {
+            const res = await fetch("https://wase-backend-fnji.onrender.com/api/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -79,6 +79,7 @@ export const AuthProvider = ({ children }) => {
     );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => {
     return React.useContext(authContext);
 }

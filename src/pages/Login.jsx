@@ -16,7 +16,7 @@ const Login = () => {
     })
     const [loading, setLoading] = useState(false)
     const [showPassword, setShowPassword] = useState(false)
-    const {login} = useAuth();
+    const { login } = useAuth();
 
     const handleChange = (e) => {
 
